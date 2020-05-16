@@ -16,7 +16,7 @@ const view = () => {
   camera.position.set(0, 1, 5);
   const ambientLight = new THREE.AmbientLight(0xf0f0f0, 1);
   const directLight = new THREE.DirectionalLight(0xffffff, 1)
-  directLight.set(-50, -50, 1);
+  directLight.position.set(-50, -50, 1);
   scene.add(ambientLight, directLight);
 
   // ヘルパー追加
