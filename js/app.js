@@ -12,7 +12,7 @@ const view = () => {
 
   // シーン, カメラ, ライトの追加
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(50, width / height, 1, 100);
+  const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 300);
   camera.position.set(0, 1, 5);
   const light = new THREE.AmbientLight(0xffffff, 1);
   scene.add(light);
@@ -26,7 +26,7 @@ const view = () => {
   // sphere.position.set(0, 1, 0);
   scene.add(grid);
   const loader = new THREE.GLTFLoader();
-  const model = '/three-demo/model/glasses.glb';
+  const model = 'three-demo/model/glasses.glb';
   loader.load(model, (data) => {
     const gltf = data;
     const obj = gltf.scene;
