@@ -28,7 +28,7 @@ const view = () => {
 
   // 3Dオブジェクト追加
   const loader = new THREE.GLTFLoader();
-  const model = '/model/glasses.glb';
+  const model = 'three-demo/model/glasses.glb';
   loader.load(model, (data) => {
     const gltf = data;
     const obj = gltf.scene;
