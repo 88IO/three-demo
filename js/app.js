@@ -6,7 +6,7 @@ const view = () => {
   // レンダラ作成, DOM追加
   const renderer = new THREE.WebGLRenderer();
   renderer.setSize(width, height);
-  renderer.setClearColor(0xf3f3f3, 1.0);
+  renderer.setClearColor(0x777777, 1.0);
   renderer.gammaOutput = true;
   document.body.appendChild(renderer.domElement);
 
@@ -14,17 +14,19 @@ const view = () => {
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 300);
   camera.position.set(0, 1, 5);
-  const light = new THREE.AmbientLight(0xffffff, 1);
-  scene.add(light);
+  const ambientLight = new THREE.AmbientLight(0xf0f0f0, 1);
+  const directLight = new THREE.DirectionalLight(0xffffff, 1)
+  scene.add(ambientLight, directLight);
+
+  // ヘルパー追加
+  const axisHelper = new THREE.AxisHelper(10);
+  scene.add(axisHelper);
 
   // メッシュ追加
-  const grid = new THREE.GridHelper(10, 5);
-  // const sphere = new THREE.Mesh(
-  //   new THREE.SphereGeometry(1),
-  //   new THREE.MeshPhongMaterial({color: 0x0074df})
-  // );
-  // sphere.position.set(0, 1, 0);
+  const grid = new THREE.GridHelper(30, 3);
   scene.add(grid);
+
+  // 3Dオブジェクト追加
   const loader = new THREE.GLTFLoader();
   const model = '/model/glasses.glb';
   loader.load(model, (data) => {
