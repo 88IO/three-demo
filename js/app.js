@@ -7,6 +7,7 @@ const view = () => {
   const renderer = new THREE.WebGLRenderer();
   renderer.setSize(width, height);
   renderer.setClearColor(0xf3f3f3, 1.0);
+  renderer.gammaOutput = true;
   document.body.appendChild(renderer.domElement);
 
   // シーン, カメラ, ライトの追加
