@@ -6,24 +6,25 @@ const view = () => {
   // レンダラ作成, DOM追加
   const renderer = new THREE.WebGLRenderer();
   renderer.setSize(width, height);
-  renderer.setClearColor(0x777777, 1.0);
+  renderer.setClearColor(0xe0e0e0, 1.0);
   renderer.gammaOutput = true;
   document.body.appendChild(renderer.domElement);
 
   // シーン, カメラ, ライトの追加
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 300);
+  const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 50);
   camera.position.set(0, 1, 5);
   const ambientLight = new THREE.AmbientLight(0xf0f0f0, 1);
   const directLight = new THREE.DirectionalLight(0xffffff, 1)
+  directLight.set(-50, -50, 1);
   scene.add(ambientLight, directLight);
 
   // ヘルパー追加
-  const axisHelper = new THREE.AxisHelper(10);
+  const axisHelper = new THREE.AxisHelper(1);
   scene.add(axisHelper);
 
   // メッシュ追加
-  const grid = new THREE.GridHelper(30, 3);
+  const grid = new THREE.GridHelper(10, 10);
   scene.add(grid);
 
   // 3Dオブジェクト追加
@@ -39,7 +40,7 @@ const view = () => {
   const controls = new THREE.OrbitControls(camera, renderer.domElement);
   controls.userPan = false;
   controls.userPanSpeed = 0.0;
-  controls.maxDistance = 300.0;
+  controls.maxDistance = 50.0;
   controls.maxPolarAngle = Math.PI;
   controls.autoRotate = true;
   controls.autoRotateSpeed = 1.0;
