@@ -26,7 +26,7 @@ const view = () => {
   // sphere.position.set(0, 1, 0);
   scene.add(grid);
   const loader = new THREE.GLTFLoader();
-  const model = '../model/glasses.glb';
+  const model = '/three-demo/model/glasses.glb';
   loader.load(model, (data) => {
     const gltf = data;
     const obj = gltf.scene;
