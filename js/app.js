@@ -39,8 +39,8 @@ const view = () => {
   const controls = new THREE.OrbitControls(camera, renderer.domElement);
   controls.userPan = false;
   controls.userPanSpeed = 0.0;
-  controls.maxDistance = 5000.0;
-  controls.maxPolarAngle = Math.PI * 0.5;
+  controls.maxDistance = 300.0;
+  controls.maxPolarAngle = Math.PI;
   controls.autoRotate = true;
   controls.autoRotateSpeed = 1.0;
 
